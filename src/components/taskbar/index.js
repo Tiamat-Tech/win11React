@@ -5,7 +5,10 @@ import Battery from "../Battery";
 import "./taskbar.scss";
 
 const Taskbar = () => {
-  const tasks = useSelector((state) => state.taskbar);
+  const tasks = useSelector((state) =>{
+    //console.log(state)
+    return state.taskbar
+  });
   const apps = useSelector((state) => {
     var tmpApps = { ...state.apps };
     for (var i = 0; i < state.taskbar.apps.length; i++) {
@@ -89,13 +92,13 @@ const Taskbar = () => {
           <div className="tsbar" onMouseOut={hidePrev}>
             <Icon className="tsIcon" src="home" width={24} click="STARTOGG" />
             {tasks.search ? <Icon className="tsIcon searchIcon" src="search" width={24} click="STARTSRC" /> : null}
-            {tasks.widgets ? <Icon className="tsIcon" src="widget" width={24} click="WIDGTOGG" /> : null}
+            {tasks.widgets ? <Icon className="tsIcon widget" src="widget" width={24} click="WIDGTOGG" /> : null}
             {tasks.apps.map((task, i) => {
               var isHidden = apps[task.icon].hide;
               var isActive = apps[task.icon].z == apps.hz;
               return (
-                <div onMouseOver={(!isActive && !isHidden && showPrev) || null} value={task.icon}>
-                  <Icon key={i} className="tsIcon" width={24} open={isHidden ? null : true} click={task.action} active={isActive} payload="togg" src={task.icon} />
+                <div key={i} onMouseOver={(!isActive && !isHidden && showPrev) || null} value={task.icon}>
+                  <Icon  className="tsIcon" width={24} open={isHidden ? null : true} click={task.action} active={isActive} payload="togg" src={task.icon} />
                 </div>
               );
             })}
@@ -103,10 +106,9 @@ const Taskbar = () => {
               if (key != "hz") {
                 var isActive = apps[key].z == apps.hz;
               }
-
-              return key != "hz" && !apps[key].task && !apps[key].hide ? (
-                <div onMouseOver={(!isActive && showPrev) || null} value={apps[key].icon}>
-                  <Icon key={i} className="tsIcon" width={24} active={isActive} click={apps[key].action} payload="togg" open="true" src={apps[key].icon} />
+              return key != "hz"&& key != "undefined"&& !apps[key].task && !apps[key].hide ? (
+                <div key={i} onMouseOver={(!isActive && showPrev) || null} value={apps[key].icon}>
+                  <Icon className="tsIcon" width={24} active={isActive} click={apps[key].action} payload="togg" open="true" src={apps[key].icon} />
                 </div>
               ) : null;
             })}

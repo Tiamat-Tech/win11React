@@ -1,5 +1,7 @@
 {
-  "System": [
+  "System": [{
+      "type": "sysTop"
+    },
     {
       "type": "tile",
       "name": "Display",
@@ -91,8 +93,7 @@
       "icon": ""
     }
   ],
-  "Bluetooth & devices": [
-    {
+  "Bluetooth & devices": [{
       "type": "tile square",
       "name": "Add device",
       "icon": ""
@@ -165,7 +166,9 @@
       "icon": ""
     }
   ],
-  "Network & internet": [
+  "Network & internet": [{
+      "type": "netTop"
+    },
     {
       "type": "tile",
       "name": "WiFi",
@@ -209,10 +212,8 @@
       "icon": ""
     }
   ],
-  "Personalisation": [
-    {
-      "type": "subHeading",
-      "name": "Select a theme to apply"
+  "Personalisation": [{
+      "type": "personaliseTop"
     },
     {
       "type": "tile",
@@ -269,8 +270,7 @@
       "icon": ""
     }
   ],
-  "Apps": [
-    {
+  "Apps": [{
       "type": "tile",
       "name": "Apps & features",
       "desc": "Installed apps, app execution aliases",
@@ -313,7 +313,9 @@
       "icon": ""
     }
   ],
-  "Accounts": [
+  "Accounts": [{
+      "type": "accountsTop"
+    },
     {
       "type": "tile",
       "name": "Your Microsoft account",
@@ -357,8 +359,7 @@
       "icon": ""
     }
   ],
-  "Time & language": [
-    {
+  "Time & language": [{
       "type": "tile",
       "name": "Date & time",
       "desc": "Time zones, automatic clock settings, calendar display",
@@ -383,8 +384,7 @@
       "icon": ""
     }
   ],
-  "Gaming": [
-    {
+  "Gaming": [{
       "type": "tile",
       "name": "Xbox Game Bar",
       "desc": "Controller and keyboard shortcuts",
@@ -403,8 +403,7 @@
       "icon": ""
     }
   ],
-  "Accessibility": [
-    {
+  "Accessibility": [{
       "type": "subHeading",
       "name": "Vision"
     },
@@ -501,8 +500,7 @@
       "icon": ""
     }
   ],
-  "Privacy & security": [
-    {
+  "Privacy & security": [{
       "type": "subHeading",
       "name": "Security"
     },
@@ -700,7 +698,9 @@
       "icon": ""
     }
   ],
-  "Windows Update": [
+  "Windows Update": [{
+      "type": "updateTop"
+    },
     {
       "type": "subHeading",
       "name": "More options"

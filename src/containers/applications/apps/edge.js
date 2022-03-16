@@ -5,7 +5,7 @@ import {Icon, Image, ToolBar, LazyComponent} from '../../../utils/general';
 export const EdgeMenu = ()=>{
   const apps = useSelector(state => state.apps)
   const wnapp = useSelector(state => state.apps.edge)
-  const [url, setUrl] = useState("https://bing.com")
+  const [url, setUrl] = useState("https://www.google.com/?igu=1")
   const [ierror, setErr] = useState(true)
   const [isTyping, setTyping] = useState(false)
   const [hist, setHist] = useState(["https://bing.com","https://bing.com"])
@@ -25,7 +25,7 @@ export const EdgeMenu = ()=>{
   }
 
   const favicons = {
-    "https://andrewstech.me":"https://andrewstech.me/images/%5BOriginal%20size%5D%20AT.png"
+    "https://andrewstech.me":"https://avatars.githubusercontent.com/u/45342431"
   }
 
   const clickDispatch = (event)=>{
@@ -113,7 +113,7 @@ export const EdgeMenu = ()=>{
         ...(wnapp.size=="cstm"?wnapp.dim:null),
         zIndex: wnapp.z
       }} data-hide={wnapp.hide} id={wnapp.icon+"App"}>
-      <ToolBar app={wnapp.action} icon={wnapp.icon}
+      <ToolBar app={wnapp.action} icon={wnapp.icon} size={wnapp.size}
         name="Browser" float/>
       <div className="windowScreen flex flex-col">
         <div className="overTool flex">
@@ -147,9 +147,9 @@ export const EdgeMenu = ()=>{
           </div>
           <div className="w-full bookbar py-2">
             <div className="flex">
-              {Object.keys(iframes).map(mark=>{
+              {Object.keys(iframes).map((mark,i)=>{
                 return(
-                  <div className="flex handcr items-center ml-2 mr-1 prtclk"
+                  <div key={i} className="flex handcr items-center ml-2 mr-1 prtclk"
                     onClick={action} data-payload={6} data-url={mark}>
                     <Icon className="mr-1" ext width={16}
                       src={iframes[mark][0]!="\n"?
